@@ -511,7 +511,7 @@ do_install() {
     case "$0" in
         /dev/fd/*|*proc/self/fd*|*/dev/stdin*)
             echo "curl|bash 方式无法定位脚本文件，请先下载再安装："
-            echo "  curl -Ls https://raw.githubusercontent.com/hahafeng9/vps-traffic-monitor/main/vps-monitor.sh -o /tmp/vps-monitor.sh"
+            echo "  curl -Ls \"https://raw.githubusercontent.com/hahafeng9/vps-traffic-monitor/main/vps-monitor.sh?v=\$(date +%s)\" -o /tmp/vps-monitor.sh"
             echo "  bash /tmp/vps-monitor.sh install"
             return 1 ;;
     esac
