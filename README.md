@@ -20,11 +20,13 @@
 ## 安装
 
 ```bash
-curl -Ls https://raw.githubusercontent.com/hahafeng9/vps-traffic-monitor/main/vps-monitor.sh -o /tmp/vps-monitor.sh
+curl -Ls "https://raw.githubusercontent.com/hahafeng9/vps-traffic-monitor/main/vps-monitor.sh?v=$(date +%s)" -o /tmp/vps-monitor.sh
 bash /tmp/vps-monitor.sh install
 ```
 
-`install` 会自动完成：复制到 `/usr/local/bin/vps-monitor`、注册 systemd 定时任务（check 每 5 分钟 + report 每天 9 点）；无 systemd 的系统自动改用 cron。
+> 命令里的 `?v=$(date +%s)` 是绕 raw CDN 缓存用的，刚发布的新版可能要几分钟才同步到所有节点。
+
+`install` 会自动完成：复制到 `/usr/local/bin/vps-monitor`、注册 systemd 定时任务（check 每 5 分钟 + report 每天 9 点）；无 systemd 的系统自动改用 cron。装完自动询问是否配置 TG 通知。
 
 ```bash
 vps-monitor config   # 配置 TG bot token / chat id / 阈值
