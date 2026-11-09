@@ -594,6 +594,15 @@ UNIT
         return 1
     fi
     echo "下一步：vps-monitor config 配置 TG 通知，然后 vps-monitor test 测试"
+
+    # 安装完直接引导配置 TG（回车默认进入）
+    printf '是否现在配置 TG 通知？[Y/n]：'
+    read -r a
+    if [ "$a" != "n" ] && [ "$a" != "N" ]; then
+        do_config
+    else
+        echo "稍后运行 vps-monitor config 也可以配置"
+    fi
 }
 
 # ---------- 配置 / 测试 / 基线 ----------
